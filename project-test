@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: replicatset-for_pods_Hyderabad
+  labels:
+    app: scanning_app
+    type: front-end
+spec:
+  template:
+    metadata:
+      name: nginx-pod_scanning_hyderabad
+      labels:
+        name: nginx_scanning_data
+        type: front-end
+    spec:
+      containers:
+        - name: nginx_latest_scanning_hyderabad
+          image: nginx
+  replicas: 3
+  selector:
+    matchLabels:
+      type: front-end
